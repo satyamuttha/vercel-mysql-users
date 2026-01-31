@@ -2,6 +2,14 @@ function loadUsers() {
   fetch('/api/users')
     .then(res => res.json())
     .then(data => {
+
+      // 🔐 SAFETY CHECK
+      if (!Array.isArray(data)) {
+        console.error('API Error:', data);
+        alert(data.error || 'Server error');
+        return;
+      }
+
       const list = document.getElementById('userList');
       list.innerHTML = '';
 
