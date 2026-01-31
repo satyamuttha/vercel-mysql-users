@@ -1,10 +1,11 @@
+/*
 export default function handler(req, res) {
   res.status(200).json([
     { id: 1, name: "Test User", email: "test@gmail.com" }
   ]);
 }
+*/
 
-/*
 import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
@@ -40,4 +41,3 @@ export default async function handler(req, res) {
     if (connection) await connection.end();
   }
 }
-*/
