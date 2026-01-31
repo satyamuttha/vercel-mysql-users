@@ -1,0 +1,32 @@
+vercel-mysql-users/
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── api/
+│   └── users.js
+│
+├── package.json
+└── vercel.json
+
+
+echo "# vercel-mysql-users" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/satyamuttha/vercel-mysql-users.git
+git push -u origin main
+
+
+git remote add origin https://github.com/satyamuttha/vercel-mysql-users.git
+git branch -M main
+git push -u origin main
+
+DB_HOST=xxxxx
+DB_USER=xxxxx
+DB_PASS=xxxxx
+DB_NAME=xxxxx
+DB_PORT=xxxx
