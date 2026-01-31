@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
   let connection;
@@ -10,20 +10,24 @@ export default async function handler(req, res) {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
+
       ssl: {
-        rejectUnauthorized: true
+        rejectUnauthorized: false
       }
     });
 
-    const [rows] = await connection.query(
+    const [rows] = await connection.execute(
       'SELECT id, name, email FROM users'
     );
 
     res.status(200).json(rows);
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error('DB ERROR:', error);
+    res.status(500).json({
+      message: 'Database connection failed',
+      error: error.message
+    });
 
   } finally {
     if (connection) await connection.end();
