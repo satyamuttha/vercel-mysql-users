@@ -1,5 +1,5 @@
 function loadUsers() {
-  fetch('/.api/users')
+  fetch('/api/users')
     .then(res => res.json())
     .then(data => {
       const list = document.getElementById('userList');
